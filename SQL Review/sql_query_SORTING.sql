@@ -9,13 +9,15 @@
 -- 4. Write a query to display the first_name of all employees who have both an "b" and "c" in their first name.
 --SELECT first_name FROM employees WHERE LOWER(first_name) LIKE '%b%' AND LOWER(first_name) LIKE '%c%';
 -- 5. Write a query to display the last name, job, and salary for all employees whose job is that of a Programmer or a Shipping Clerk, and whose salary is not equal to $4,500, $10,000, or $15,000.
-SELECT e.last_name, j.job_title, e.salary FROM employees e LEFT JOIN jobs j
-ON e.job_id = j.job_id 
-WHERE  (j.job_title = 'Programmer' OR j.job_title = 'Shipping Clerk') AND e.salary NOT IN (4500,10000,15000);
+--SELECT e.last_name, j.job_title, e.salary FROM employees e LEFT JOIN jobs j
+--ON e.job_id = j.job_id 
+--WHERE  (j.job_title = 'Programmer' OR j.job_title = 'Shipping Clerk') AND e.salary NOT IN (4500,10000,15000);
 -- 6. Write a query to display the last names of employees whose names have exactly 6 characters. 
-
+-- SELECT last_name, first_name ||' '|| last_name AS 'Full name' FROM employees WHERE LENGTH(first_name || last_name) = 6;
 -- 7. Write a query to display the last names of employees having 'e' as the third character.
-
+--SELECT last_name FROM employees WHERE last_name LIKE '__e%';
 -- 8. Write a query to display the jobs/designations available in the employees table. 
-
+-- SELECT DISTINCT j.job_title FROM employees e LEFT JOIN jobs j 
+-- ON e.job_id = j.job_id;
 -- 9. Write a query to display the names (first_name, last_name), salary and PF (15% of salary) of all employees. 
+-- SELECT first_name, last_name, salary, salary*0.15 AS 'PF' FROM employees;
